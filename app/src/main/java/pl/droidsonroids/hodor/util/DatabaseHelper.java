@@ -46,6 +46,10 @@ public class DatabaseHelper {
                 });
     }
 
+    public String getUserToken(final String username) {
+        return mDatabaseReference.child(username).getKey();
+    }
+
     public void addFriendToDatabase(final User user) {
         mDatabaseReference.child(Constants.DB_FRIENDS)
                 .child(mHodorPreferences.getUsername())

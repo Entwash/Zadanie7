@@ -8,6 +8,8 @@ public class Constants {
     public static final String USERNAME_SHAREDPREF = "sharedPrefs";
     public static final String USERNAME_LOGIN = "userLogin";
     public static final String USERNAME_DEFAULT = "user123";
+    public static final String USER_TARGET = "user";
+
 
 
 }
