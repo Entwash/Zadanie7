@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
+
+import com.google.firebase.iid.FirebaseInstanceId;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -32,7 +35,7 @@ public class LoginActivity extends AppCompatActivity {
         final ProgressDialog loginProgressDialog = showProgressDialog();
         final String username = mEditTextLogin.getText().toString();
 
-        User user = new User(username, null);
+        User user = new User(username, FirebaseInstanceId.getInstance().getToken());
         mDatabaseHelper.saveUserInDatabase(user, () -> {
             goToMain();
             loginProgressDialog.cancel();

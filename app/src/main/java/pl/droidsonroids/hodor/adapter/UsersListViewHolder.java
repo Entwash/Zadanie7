@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import pl.droidsonroids.hodor.HodorApplication;
 import pl.droidsonroids.hodor.R;
 import pl.droidsonroids.hodor.model.User;
 import pl.droidsonroids.hodor.util.DatabaseHelper;
@@ -31,6 +32,11 @@ public class UsersListViewHolder extends RecyclerView.ViewHolder {
     }
 
     private void setOnClickListener(final User friend) {
-        //TODO
+        mTextViewUsername.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                HodorApplication.getInstance().getRestAdapter().sendPush(friend.getToken());
+            }
+        });
     }
 }
